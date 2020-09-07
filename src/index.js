@@ -1,30 +1,31 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactDom from "react-dom";
 
-function FCHello() {
+function FCHello({ name }) {
   return (
     <>
-      <h1>Hello Functional Component!</h1>
+      <h1>Hello {name}!</h1>
     </>
   );
 }
 
-class CCHello extends React.Component {
+class CCHello extends Component {
   render() {
+    const { name } = this.props;
     return (
       <>
-        <h1>Hello Class Component!</h1>
+        <h1>Hello {name}!</h1>
       </>
     );
   }
 }
 
-class App extends React.Component {
+class App extends Component {
   render() {
     return (
       <>
-        <FCHello />
-        <CCHello />
+        <FCHello name="Function Component" />
+        <CCHello name="Class Component" />
       </>
     );
   }
